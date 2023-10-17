@@ -25,10 +25,12 @@ namespace Automobili
             if (auto.Accensione())
             {
                 button1.BackColor = Color.Green;
+                label1.Text = "Acceso";
             }
             else
             {
                 button1.BackColor = Color.Red;
+                label1.Text = "Spento";
             }
         }
     }
