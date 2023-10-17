@@ -24,6 +24,19 @@ namespace Automobili
             Acc = false;
         }
 
+        public bool Accensione()
+        {
+            if (_acc == true)
+            {
+                _acc = false;
+            }
+            else
+            {
+                _acc = true;
+            }
+            return _acc;
+        }
+
         int Vel
         {
             get { return _vel; }
