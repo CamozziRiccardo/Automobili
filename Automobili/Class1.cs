@@ -17,7 +17,7 @@ namespace Automobili
         //booleano per verificare l'accensione
         protected bool _acc;
 
-        //cose
+        //Attributo che servirà a calcolare quanto l'auto deve accellerare per arrivare al limite massima imposto dalla marcia dalla velocità corrente usando l'accelleratore 3 volte
         protected int _limit;
 
         public Auto_Man() 
@@ -30,28 +30,28 @@ namespace Automobili
 
         public bool Accensione()
         {
-            if (_acc == true && _vel == 0)
+            if (Acc == true && Vel == 0)
             {
-                _acc = false;
+                Acc = false;
             }
-            else if (_vel == 0)
+            else if (Vel == 0)
             {
-                _acc = true;
+                Acc = true;
             }
-            return _acc;
+            return Acc;
         }
 
         public bool ControlloMarcia(int m)
         {
             //controllo che la macchina sia accesa
-            if (!_acc) { return false; }
+            if (!Acc) { return false; }
 
             //controllo che la velocità sia abbastanza bassa per poter diminuire la marcia
-            if (_vel <= 20 && m > 0) { return true; }
-            else if (_vel <= 40 && m > 1) { return true; }
-            else if (_vel <= 60 && m > 2) { return true; }
-            else if (_vel <= 80 && m > 3) { return true; }
-            else if (_vel <= 100 && m > 4) { return true; }
+            if (Vel <= 100 && m > 4) { Limit = 100 - Vel;  return true; }
+            else if (Vel <= 80 && m > 3) { Limit = 80 - Vel; return true; }
+            else if (Vel <= 60 && m > 2) { Limit = 60 - Vel; return true; }
+            else if (Vel <= 40 && m > 1) { Limit = 40 - Vel; return true; }
+            else if (Vel <= 20 && m > 0) { Limit = 20 - Vel; return true; }
 
             //nel caso la velocità sia troppo elevata non posso cambiare marcia
             return false;
@@ -59,34 +59,34 @@ namespace Automobili
 
         public void accellerazione()
         {
-            if (!_acc)
+            if (!Acc)
             {
                 return;
             }
             if (_marcia == 1)
             {
-                 if (_vel < 20) { _vel += 20 / 3; if (_vel > 20) { _vel = 20; } }
-                 else { _vel = 20; }
+                 if (Vel < 20) { Vel += Limit / 3; if (Vel > 20) { Vel = 20; } }
+                 else { Vel = 20; }
             }
             if (_marcia == 2)
             {
-                if (_vel < 40) { _vel += _limit / 3; if (_vel > 40) { _vel = 40; } }
-                else { _vel = 40; }
+                if (Vel < 40) { Vel += Limit / 3; if (_vel > 40) { _vel = 40; } }
+                else { Vel = 40; }
             }
             if (_marcia == 3)
             {
-                if (_vel < 60) { _vel += _limit / 3; if (_vel > 60) { _vel = 60; } }
-                else { _vel = 60; }
+                if (Vel < 60) { Vel += Limit / 3; if (_vel > 60) { Vel = 60; } }
+                else { Vel = 60; }
             }
             if (_marcia == 4)
             {
-                if (_vel < 80) { _vel += _limit / 3; if (_vel > 80) { _vel = 80; } }
-                else { _vel = 80; }
+                if (Vel < 80) { _vel += Limit / 3; if (Vel > 80) { Vel = 80; } }
+                else { Vel = 80; }
             }
             if (_marcia == 5)
             {
-                if (_vel < 100) { _vel += _limit / 3; if (_vel > 100) { _vel = 100; } }
-                else { _vel = 100; }
+                if (Vel < 100) { _vel += Limit / 3; if (Vel > 100) { Vel = 100; } }
+                else { Vel = 100; }
             }
         }
 
