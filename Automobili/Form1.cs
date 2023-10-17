@@ -20,6 +20,7 @@ namespace Automobili
             auto = new Auto_Man();
         }
 
+        //accensione e spegnimento
         private void button2_Click(object sender, EventArgs e)
         {
             if (auto.Accensione())
@@ -33,13 +34,15 @@ namespace Automobili
                 label1.Text = "Spenta";
             }
         }
+
+        //cambio marcia manuale
         private void button9_Click(object sender, EventArgs e)
         {
             if (int.Parse(textBox1.Text) < 0 || int.Parse(textBox1.Text) > 5)
             {
                 MessageBox.Show("Dato inserito non valido");
             }
-            else
+            else if (auto.ControlloMarcia(int.Parse(textBox1.Text)))
             {
                 auto.Marcia = int.Parse(textBox1.Text);
                 if (auto.Marcia == 1) 

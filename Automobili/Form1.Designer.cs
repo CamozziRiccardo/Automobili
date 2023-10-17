@@ -41,6 +41,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -82,7 +84,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 58);
+            this.label3.Location = new System.Drawing.Point(12, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 13);
             this.label3.TabIndex = 6;
@@ -90,7 +92,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 74);
+            this.textBox1.Location = new System.Drawing.Point(12, 83);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(90, 20);
             this.textBox1.TabIndex = 7;
@@ -115,12 +117,13 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.Gray;
             this.button5.Location = new System.Drawing.Point(254, 84);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(15, 19);
             this.button5.TabIndex = 10;
             this.button5.Text = "R";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
@@ -158,11 +161,31 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(346, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Accellerare (premere 3 volte per raggiungere il limite della marcia attuale)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(259, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Decellerare (premere 3 volte per fermare la macchina)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -198,6 +221,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

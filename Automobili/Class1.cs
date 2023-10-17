@@ -20,7 +20,7 @@ namespace Automobili
         public Auto_Man() 
         {
             Vel = 0;
-            Marcia = 1;
+            Marcia = 0;
             Acc = false;
         }
 
@@ -35,6 +35,21 @@ namespace Automobili
                 _acc = true;
             }
             return _acc;
+        }
+
+        public bool ControlloMarcia(int m)
+        {
+            //controllo che la macchina sia accesa
+            if (!_acc) { return false; }
+            //controllo che la velocità sia abbastanza bassa per poter diminuire la marcia
+            if (_vel < 20 && m > 0) { return true; }
+            else if (_vel <= 40 && m > 1) { return true; }
+            else if (_vel <= 60 && m > 2) { return true; }
+            else if (_vel <= 80 && m > 3) { return true; }
+            else if (_vel <= 100 && m > 4) { return true; }
+
+            //nel caso la velocità sia troppo elevata non posso cambiare marcia
+            return false;
         }
 
         public int Vel
