@@ -55,6 +55,7 @@ namespace Automobili
             else if (Vel <= 60 && m > 2) { Limit = 60 - Vel; return true; }
             else if (Vel <= 40 && m > 1) { Limit = 40 - Vel; return true; }
             else if (Vel <= 20 && m > 0) { Limit = 20 - Vel; return true; }
+            else if (m == 0) { Limit = -20 - Vel; return true; }
 
             //nel caso la velocità sia troppo elevata non posso cambiare marcia
             return false;
@@ -62,35 +63,41 @@ namespace Automobili
 
         public void accellerazione()
         {
+            //verifico che la macchina sia accesa prima di poter accellerare
             if (!Acc)
             {
                 return;
             }
-            if (_marcia == 1)
+            if (Marcia == 1)
             {
                  if (Vel < 20) { Vel += Limit / 3; if (Vel > 20) { Vel = 20; } }
                  else { Vel = 20; }
             }
-            if (_marcia == 2)
+            else if (Marcia == 2)
             {
                 if (Vel < 40) { Vel += Limit / 3; if (_vel > 40) { _vel = 40; } }
                 else { Vel = 40; }
             }
-            if (_marcia == 3)
+            else if (Marcia == 3)
             {
                 if (Vel < 60) { Vel += Limit / 3; if (_vel > 60) { Vel = 60; } }
                 else { Vel = 60; }
             }
-            if (_marcia == 4)
+            else if (Marcia == 4)
             {
                 if (Vel < 80) { _vel += Limit / 3; if (Vel > 80) { Vel = 80; } }
                 else { Vel = 80; }
             }
-            if (_marcia == 5)
+            else if (Marcia == 5)
             {
                 if (Vel < 100) { _vel += Limit / 3; if (Vel > 100) { Vel = 100; } }
                 else { Vel = 100; }
             }
+            else if (Marcia == 0)
+            {
+                if (Vel > -20 ) { Vel += Limit / 3; if (Vel < -20) { Vel = -20; } }
+            }
+
             Total = Vel;
         }
 
@@ -103,6 +110,7 @@ namespace Automobili
             }
         }
 
+        #region get e set
         public int Vel
         {
             get { return _vel; }
@@ -132,5 +140,6 @@ namespace Automobili
             get { return _total; }
             set { _total = value; }
         }
+        #endregion
     }
 }
