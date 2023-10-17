@@ -8,10 +8,10 @@ namespace Automobili
 {
     internal class Auto_Man
     {
-        //da 0 a 100, 6 marce, valorre 0 per la retro
+        //da 0 a 100, 5 marce, valore 0 per la retro
         protected int _vel;
 
-        //6 marce diverse
+        //5 marce diverse
         protected int _marcia;
 
         //booleano per verificare l'accensione
@@ -37,19 +37,19 @@ namespace Automobili
             return _acc;
         }
 
-        int Vel
+        public int Vel
         {
             get { return _vel; }
             set { _vel = value; }
         }
 
-        int Marcia
+        public int Marcia
         {
             get { return _marcia; }
             set { _marcia = value; }
         }
 
-        bool Acc
+        public bool Acc
         {
             get { return _acc; }
             set { _acc = value; }
