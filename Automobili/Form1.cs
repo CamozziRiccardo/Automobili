@@ -108,5 +108,11 @@ namespace Automobili
             auto.accellerazione();
             button10.Text = auto.Vel.ToString();
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            auto.decellerazione();
+            button10.Text = auto.Vel.ToString();
+        }
     }
 }

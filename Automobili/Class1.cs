@@ -20,6 +20,9 @@ namespace Automobili
         //Attributo che servirà a calcolare quanto l'auto deve accellerare per arrivare al limite massima imposto dalla marcia dalla velocità corrente usando l'accelleratore 3 volte
         protected int _limit;
 
+        //attributo che serve a calcolare la decellerazione e viene contato sull'ultima accellerazione
+        protected int _total;
+
         public Auto_Man() 
         {
             Vel = 0;
@@ -88,6 +91,16 @@ namespace Automobili
                 if (Vel < 100) { _vel += Limit / 3; if (Vel > 100) { Vel = 100; } }
                 else { Vel = 100; }
             }
+            Total = Vel;
+        }
+
+        public void decellerazione()
+        {
+            Vel -= Total / 3;
+            if (Vel < 0)
+            {
+                Vel = 0;
+            }
         }
 
         public int Vel
@@ -112,6 +125,12 @@ namespace Automobili
         {
             get { return _limit; }
             set { _limit = value; }
+        }
+
+        public int Total
+        {
+            get { return _total; }
+            set { _total = value; }
         }
     }
 }
