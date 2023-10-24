@@ -18,10 +18,10 @@ namespace Automobili
         protected bool _acc;
 
         //Attributo che servirà a calcolare quanto l'auto deve accellerare per arrivare al limite massima imposto dalla marcia dalla velocità corrente usando l'accelleratore 3 volte
-        protected int _limit;
+        private int _limit;
 
         //attributo che serve a calcolare la decellerazione e viene contato sull'ultima accellerazione
-        protected int _total;
+        private int _total;
 
         public Auto_Man() 
         {
@@ -31,7 +31,7 @@ namespace Automobili
             Limit = 0;
         }
 
-        public bool Accensione()
+        public virtual bool Accensione()
         {
             if (Acc == true && Vel == 0)
             {
@@ -103,10 +103,18 @@ namespace Automobili
 
         public void decellerazione()
         {
-            Vel -= Total / 3;
-            if (Vel < 0)
+            
+            if (Vel - Total/3 < 0)
             {
                 Vel = 0;
+            }
+            else if (Vel < 0 && Vel - Total / 3 > 0)
+            {
+                Vel = 0;
+            }
+            else
+            {
+                Vel -= Total / 3;
             }
         }
 
